@@ -4,18 +4,15 @@ import time
 
 import style
 import test_print
+import utils
 
 EXE = "../push_swap/push_swap"
 
 
-def simulate(cmd: str, args) -> subprocess.CompletedProcess:
+def run_program(cmd: str, args: []) -> subprocess.CompletedProcess:
     all_args = args.copy()
     all_args.insert(0, cmd)
     return subprocess.run(all_args, stdout=subprocess.PIPE)
-
-
-def get_stdout(output: subprocess.CompletedProcess) -> str:
-    return output.stdout.decode('UTF-8') if output.stdout is not None else ''
 
 
 def count_lines(text: str) -> int:
@@ -29,14 +26,14 @@ def count_lines(text: str) -> int:
 
 def test(args: [], test_number: int) -> None:
     start_time = time.time()
-    proc = simulate(EXE, args)
+    proc = run_program(EXE, args)
     time_elapsed = time.time() - start_time
-    operations = get_stdout(proc)
+    operations = utils.get_stdout(proc)
     linecount = count_lines(operations)
 
     print(test_print.show_test_number(test_number)
           + "\t"
-          + test_print.judge_opcount(linecount, 12, 7)  # TODO dynamic nums based on arg count
+          + test_print.judge_opcount(linecount, 12, 7)
           + '\t\t'
           + test_print.judge_time(time_elapsed)
           + '\t\t'

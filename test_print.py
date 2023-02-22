@@ -1,9 +1,12 @@
+import subprocess
+
+import utils
 import style
 
 
-def judge_opcount(opcount: int, max: int, spicy: int):
-    message = str(opcount) + ' / ' + str(max) + ' instructions'
-    if opcount >= max:
+def judge_opcount(opcount: int, maximum: int, spicy: int):
+    message = str(opcount) + ' / ' + str(maximum) + ' instructions'
+    if opcount >= maximum:
         styled = style.bad(message)
     elif opcount >= spicy:
         styled = style.spicy(message)
@@ -27,6 +30,19 @@ def show_test_number(test_number: int):
     return style.unfocused("•TEST " + str(test_number) + ':')
 
 
-# TODO need to call checker exe
 def judge_validity(operations: str, args: []):
-    return style.unfocused('Validity unknown')
+    # Run the checker
+    all_args = args.copy()
+    all_args.insert(0, "./checker")
+    proc = subprocess.run(
+        all_args,
+        input=operations.encode('utf-8'),
+        stdout=subprocess.PIPE)
+
+    # Interpret the checker's output
+    verdict = utils.get_stdout(proc).strip() == "OK"
+
+    if verdict is True:
+        return style.ok("Correct sorting")
+    else:
+        return style.bad("DOES NOT SORT")
