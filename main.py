@@ -12,7 +12,7 @@ EXE = "../push_swap/push_swap"
 def run_program(cmd: str, args: []) -> subprocess.CompletedProcess:
     all_args = args.copy()
     all_args.insert(0, cmd)
-    return subprocess.run(all_args, stdout=subprocess.PIPE)
+    return subprocess.run(all_args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
 def count_lines(text: str) -> int:

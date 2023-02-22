@@ -5,7 +5,7 @@ import style
 
 
 def judge_opcount(opcount: int, maximum: int, spicy: int):
-    message = str(opcount) + ' / ' + str(maximum) + ' instructions'
+    message = str(opcount) + ' / ' + str(maximum) + ' instructions '
     if opcount >= maximum:
         styled = style.bad(message)
     elif opcount >= spicy:
@@ -37,7 +37,8 @@ def judge_validity(operations: str, args: []):
     proc = subprocess.run(
         all_args,
         input=operations.encode('utf-8'),
-        stdout=subprocess.PIPE)
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE)
 
     # Interpret the checker's output
     verdict = utils.get_stdout(proc).strip() == "OK"
@@ -45,4 +46,4 @@ def judge_validity(operations: str, args: []):
     if verdict is True:
         return style.ok("Correct sorting")
     else:
-        return style.bad("DOES NOT SORT")
+        return style.bad("DOES NOT SORT") + style.unfocused(" Your program's output: ") + operations.replace('\n', ' ')
