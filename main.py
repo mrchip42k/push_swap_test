@@ -24,16 +24,16 @@ def count_lines(text: str) -> int:
     return count
 
 
-def test(args: [], test_number: int) -> None:
+def test(args: [], test_number: int, argcount: int) -> None:
     start_time = time.time()
     proc = run_program(EXE, args)
     time_elapsed = time.time() - start_time
     operations = utils.get_stdout(proc)
     linecount = count_lines(operations)
 
-    print(test_print.show_test_number(test_number)
+    print(test_print.show_test_number(test_number + 1)
           + "\t"
-          + test_print.judge_opcount(linecount, 12, 7)
+          + test_print.judge_opcount(linecount, argcount)
           + '\t\t'
           + test_print.judge_time(time_elapsed)
           + '\t\t'
@@ -43,19 +43,35 @@ def test(args: [], test_number: int) -> None:
           )
 
 
-def iterate_all_combinations() -> None:
-    all_permutations = list(itertools.permutations("12345"))
-    print(str(len(all_permutations)) + " combinations found:")
-    print(all_permutations)
-    print("\n••• ••• ••• BEGIN TESTS ••• ••• •••\n")
+def iterate_all_combinations(permutations_source: str, argcount: int) -> None:
+    all_permutations = list(itertools.permutations(permutations_source))
+    print(style.unfocused(str(len(all_permutations))
+          + " combinations found: "
+          + str(all_permutations)
+          + "\n")
+          )
     for i in range(len(all_permutations)):
         this_permutation = list(all_permutations[i])
-        test(this_permutation, i)
-    print("\n••• ••• ••• END TESTS ••• ••• •••\n")
+        test(this_permutation, i, argcount)
 
 
-print("Result formatting explanation:")
-print(style.ok("This is a parameter that's OK."))
-print(style.spicy("This is a parameter that's OK, but not ideal."))
-print(style.bad("Not good. Ouch."))
-iterate_all_combinations()
+def test_one_argcount(argcount: int) -> None:
+    permutations_source: str = ""
+    for i in range(1, argcount + 1):
+        permutations_source = permutations_source + str(i)
+
+    print("\n\n"
+          + style.title("••• ••• ••• Testing all combinations of " + str(argcount) + " arguments. ••• ••• •••")
+          + "\n\n"
+          )
+    iterate_all_combinations(permutations_source, argcount)
+
+
+# ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+print(style.title("Read this tester's README.md for more information."))
+
+print("\n••• ••• ••• BEGIN TESTER ••• ••• •••\n")
+for i in range(1, 5 + 1):
+    test_one_argcount(i)
+print("\n••• ••• ••• END TESTER ••• ••• •••\n")

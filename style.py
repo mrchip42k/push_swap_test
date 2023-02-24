@@ -15,3 +15,7 @@ def spicy(unstyled: str):
 
 def bad(unstyled: str):
     return bold(unstyled).underline().cs("black", "red")
+
+
+def title(unstyled: str):
+    return underline(unstyled).cs("black", "white")
