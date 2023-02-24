@@ -48,6 +48,6 @@ Orange parameters are still good, but a bit closer to the limit.
 
 Red means it's beyond the limits **with the exception of execution time, read below**.
 
-> ⚠️ **Note that execution time will show up for 10 seconds and more, which, as far as I know, is only my arbitrary choice of value.**
+> ⚠️ **Note that execution time will show red for 10 seconds and more, which, as far as I know, is only my arbitrary choice of value.**
 > 
 > I don't actually know if that should count as a timeout in an evaluation.
