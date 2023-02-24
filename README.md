@@ -17,7 +17,13 @@ What this does:
 > 
 > From my experience, you should verify your code with a few different testers anyway.
 
-# How to run
+# ~~How to run~~
+
+> ⚠️ Project depends on python 3.7+ and pip package `string-color`.
+> 
+> I am currently working on streamlining the setup process.
+> 
+> Step 3 won't work until i fix this.
 
 1. Clone this repo parallel to your project repo.
     ```
@@ -30,7 +36,7 @@ What this does:
 
    If you are on another OS or want to use another executable, just replace that file with the same name. 
 
-3. `cd` inside this repo and run the tester:
+3. ~~`cd` inside this repo and run the tester:~~
     ```bash
    ./run.sh
     ```
