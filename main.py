@@ -69,9 +69,9 @@ def test_one_argcount(argcount: int) -> None:
 
 # ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
-print(style.title("Read this tester's README.md for more information."))
-
 print("\n••• ••• ••• BEGIN TESTER ••• ••• •••\n")
 for i in range(1, 5 + 1):
     test_one_argcount(i)
 print("\n••• ••• ••• END TESTER ••• ••• •••\n")
+
+print(style.title("Read this tester's README.md for more information."))
