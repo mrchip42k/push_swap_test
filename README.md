@@ -11,7 +11,9 @@ What this does:
 - Show the sequence of inputs that was given into each test.
 - Clean and coloured output :)
 
-> **Due to the limited argument count, you CAN'T rely on this test alone to validate your project.**
+> ⚠️ **Due to the limited argument count, you CAN'T rely on this test alone to validate your project.**
+> 
+> You'll need to go elsewhere to check: bad inputs error handling, negative numbers in inputs, input counts higher than 5.
 > 
 > From my experience, you should verify your code with a few different testers anyway.
 
@@ -22,7 +24,7 @@ What this does:
     ./push_swap/ (your project repo)
     ./this_tester/
     ```
-    > The tester's folder name is not important: change it as you like.
+    > ℹ️ The tester's folder name is not important: change it as you like.
 
 2. The `./checker` executable included in this repository is the one downloaded from the exercise page, **for MacOS.**
 
@@ -42,10 +44,10 @@ Green parameters are good.
 
 Orange parameters are still good, but a bit closer to the limit.
 
-> **Note that the thresholds for orange are just my arbitrary choice.**
+> ℹ️ **Note that the thresholds for orange are just my arbitrary choice.**
 
 Red means it's beyond the limits **with the exception of execution time, read below**.
 
-> **Note that execution time will show up for 10 seconds and more, which, as far as I know, is only my arbitrary choice of value.**
+> ⚠️ **Note that execution time will show up for 10 seconds and more, which, as far as I know, is only my arbitrary choice of value.**
 > 
 > I don't actually know if that should count as a timeout in an evaluation.
