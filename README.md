@@ -17,13 +17,7 @@ What this does:
 > 
 > From my experience, you should verify your code with a few different testers anyway.
 
-# ~~How to run~~
-
-> ⚠️ Project depends on python 3.7+ and pip package `string-color`.
-> 
-> I am currently working on streamlining the setup process.
-> 
-> Step 3 won't work until i fix this.
+# How to run
 
 1. Clone this repo parallel to your project repo.
     ```
@@ -34,12 +28,17 @@ What this does:
 
 2. The `./checker` executable included in this repository is the one downloaded from the exercise page, **for MacOS.**
 
-   If you are on another OS or want to use another executable, just replace that file with the same name. 
+   If you are on another OS or want to use another executable, just replace that file with the same name.
 
-3. ~~`cd` inside this repo and run the tester:~~
+3. `cd` inside this repo and run this script to let pip install dependencies in your user:
     ```bash
-   ./run.sh
+   ./setup.sh
     ```
+
+4. Still inside this repo, use this to run the tester.
+   ```bash
+   python3.7 main.py
+   ``` 
    It will now check all combinations, for argument sizes 1-5 included.
 
 # Important notes
