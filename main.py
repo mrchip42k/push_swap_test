@@ -69,7 +69,7 @@ def test_one_argcount(argcount: int) -> None:
 
 # ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
-print("\n••• ••• ••• BEGIN TESTER ••• ••• •••\n")
+print("\n\n••• ••• ••• BEGIN TESTER ••• ••• •••")
 for i in range(1, 5 + 1):
     test_one_argcount(i)
 print("\n••• ••• ••• END TESTER ••• ••• •••\n")
